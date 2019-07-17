@@ -1,7 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask,
-MDBRow, MDBCol, MDBBtn, MDBView, MDBContainer, MDBFormInline } from "mdbreact";
+// import { BrowserRouter as Router } from "react-router-dom";
+import {  MDBMask, MDBRow, MDBView, MDBContainer } from "mdbreact";
 
 
 const ErrorPage = () => {

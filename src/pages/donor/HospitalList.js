@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBBtn, MDBCard,MDBAlert, MDBRow, MDBJumbotron, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
+import { MDBBtn, MDBCard,MDBAlert, MDBRow, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 import img from './hospital.png';
 
 const hlist = [

@@ -1,87 +1,79 @@
 import React from 'react';
-import { MDBIcon, MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBSideNavLink, MDBContainer, MDBRow, MDBBtn } from 'mdbreact';
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import CssBaseline from '@material-ui/core/CssBaseline';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+// import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+// import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+// import InboxIcon from '@material-ui/icons/MoveToInbox';
+// import MailIcon from '@material-ui/icons/Mail';
+// import { MemoryRouter as Router } from 'react-router';
+import { Link as RouterLink } from 'react-router-dom';
 
-class SideNavPage extends React.Component {
-  state = { 
-    isOpen: false
-  }
+const drawerWidth = 180;
 
-  handleToggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  };
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+  },
+  appBar: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  toolbar: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3),
+  },
+}));
 
-  render() {
-    const { isOpen } = this.state;
-    return (
-      <MDBContainer>
-        <MDBRow>
-          <MDBBtn onClick={this.handleToggle}><MDBIcon icon="bars" size="5x" /></MDBBtn>
-        </MDBRow>
-        {/* <MDBSideNav
-          logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
-          hidden
-          triggerOpening={isOpen}
-          breakWidth={1300}
-          className="deep-purple darken-4"
-        >
-          <li>
-            <ul className="social">
-              <li>
-                <a href="#!">
-                  <MDBIcon fab icon="facebook-f" />
-                </a>
-              </li>
-              <li>
-                <a href="#!">
-                  <MDBIcon fab icon="pinterest" />
-                </a>
-              </li>
-              <li>
-                <a href="#!">
-                  <MDBIcon fab icon="google-plus-g" />
-                </a>
-              </li>
-              <li>
-                <a href="#!">
-                  <MDBIcon fab icon="twitter" />
-                </a>
-              </li>
-            </ul>
-          </li>
-          <MDBSideNavNav>
-            <MDBSideNavCat
-              name="Submit blog"
-              id="submit-blog"
-              icon="chevron-right"
-            >
-              <MDBSideNavLink>Submit listing</MDBSideNavLink>
-              <MDBSideNavLink>Registration form</MDBSideNavLink>
-            </MDBSideNavCat>
-            <MDBSideNavCat
-              name="Instruction"
-              id="instruction"
-              iconRegular
-              icon="hand-pointer"
-              href="#"
-            >
-              <MDBSideNavLink>For bloggers</MDBSideNavLink>
-              <MDBSideNavLink>For authors</MDBSideNavLink>
-            </MDBSideNavCat>
-            <MDBSideNavCat name="About" id="about" icon="eye">
-              <MDBSideNavLink>Instruction</MDBSideNavLink>
-              <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
-            </MDBSideNavCat>
-            <MDBSideNavCat name="Contact me" id="contact-me" iconRegular icon="envelope">
-              <MDBSideNavLink>FAQ</MDBSideNavLink>
-              <MDBSideNavLink>Write a message</MDBSideNavLink>
-            </MDBSideNavCat>
-          </MDBSideNavNav>
-        </MDBSideNav> */}
-      </MDBContainer>
-    );
-  }
+const CollisionLink = React.forwardRef((props, ref) => (
+  <RouterLink innerRef={ref} to="/" {...props} />
+));
+
+export default function PermanentDrawerLeft() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      
+      <Drawer
+        className={classes.drawer}
+        variant="permanent"
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+        anchor="left"
+      >
+        <div className={classes.toolbar} />
+        <Divider />
+         <List>
+          {['Profile', 'Approve-Donor', 'Register-Recipient','Transplant-Match', 'Patient-Record'].map((text, index) => (
+           
+            <ListItem button key={text} component ={CollisionLink} to ={`/hospital/${text}`}>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+      {/* <main className={classes.content}>
+        <div className={classes.toolbar} />
+           <h2 className="text-center"> Welcome to the Hospital Dashboard.</h2> 
+      </main> */}
+    </div>
+  );
 }
-
-export default SideNavPage;

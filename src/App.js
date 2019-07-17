@@ -1,7 +1,7 @@
       import React from "react";
       import { BrowserRouter as Router } from "react-router-dom";
-      import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBSiveNav,
-      MDBRow, MDBCol, MDBBtn, MDBView, MDBContainer, MDBFormInline } from "mdbreact";
+      import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, 
+      MDBRow, MDBCol, MDBContainer} from "mdbreact";
       // import "./app.css";
       import Routes from "./Routes";
 
@@ -17,9 +17,9 @@
       };
 
       render() {
-      const overlay = (
-        <div id="sidenav-overlay" style={{ backgroundColor: "transparent" }} onClick={()=>this.handleTogglerClick()} />
-      );
+      // const overlay = (
+      //   <div id="sidenav-overlay" style={{ backgroundColor: "transparent" }} onClick={()=>this.handleTogglerClick()} />
+      // );
       return (
       <div id="apppage">
         <Router>
@@ -53,6 +53,7 @@
                   </MDBNavbarNav>
                 
                 </MDBCollapse>
+                
               </MDBContainer>
             </MDBNavbar>
             {/* {this.state.collapsed && overlay} */}

@@ -1,4 +1,5 @@
 import React from "react";
+import HosDrawer from "./HospitalNav";
 import { MDBRow, MDBCol, MDBInput, MDBBtn} from "mdbreact";
 
 
@@ -29,9 +30,10 @@ class FormsPage extends React.Component {
     return (
       <div >
         <MDBRow>
+            <HosDrawer/>
         <MDBCol>
           {/* <MDBJumbotron> */}
-            <h4 className="h3 display-3 text-center mt-5 mb-5" >New Donor? Sign up here!</h4>
+            <h4 className="h3 display-4 text-center mt-5 mb-5" >Register new recipient here.</h4>
            
           {/* </MDBJumbotron> */}
         </MDBCol>
